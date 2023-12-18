@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3498db;
+            color: #fff;
+            text-align: center;
+            margin: 100px;
+        }
+
+        #container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        input {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .celebration {
+            color: #f39c12;
+            font-size: 24px;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #videoContainer {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        function countAlphabets() {
+            var userInput = document.getElementById('userInput').value;
+            var alphabetCount = userInput.replace(/[^a-zA-Z]/g, '').length;
+
+            if (alphabetCount === 7) {
+                document.getElementById('result').innerHTML = "<span class='celebration'>" + userInput + "</span> is thala for a reason!";
+                displayVideo();
+                playAudio();
+            } else {
+                document.getElementById('result').innerHTML = "This is not <span class='celebration'>" + userInput + "</span> for a reason.";
+                hideVideo();
+            }
+        }
+
+        function displayResult() {
+            countAlphabets();
+        }
+
+        function playAudio() {
+            var audio = new Audio('path/to/your/audio.mp3');
+            audio.play();
+        }
+
+        function displayVideo() {
+            document.getElementById('videoContainer').innerHTML = "<video width='500' height='400' controls autoplay><source src='Bole jo koyal baago me Dhoni Dancing video meme.mp4' type='video/mp4'>Your browser does not support the video tag.</video>";
+        }
+
+        function hideVideo() {
+            document.getElementById('videoContainer').innerHTML = "";
+        }
+    </script>
+</head>
+<body>
+  <h1>CHECK IF THALA IS FOR A REASON</h1>
+    <div id="container">
+        <input type="text" id="userInput" placeholder="Enter a word">
+        <button onclick="displayResult()">CHECK</button>
+        <div id="result"></div>
+        <div id="videoContainer"></div>
+    </div>
+</body>
+</html>
